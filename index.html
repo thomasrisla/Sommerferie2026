@@ -237,6 +237,30 @@
   }
 
   footer .paw { font-size: 18px; display: block; margin-bottom: 6px; }
+
+  .map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--ink-light);
+    text-decoration: none;
+    margin-top: 5px;
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--cream);
+    transition: background 0.15s, color 0.15s;
+  }
+  .map-link:hover { background: var(--paper); color: var(--ink-mid); }
+  .map-link-row { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 5px; }
+  .drive-link {
+    color: var(--ink-light);
+    text-decoration: none;
+    font-size: 12px;
+    border-bottom: 1px dashed var(--border);
+  }
+  .drive-link:hover { color: var(--ink-mid); }
 </style>
 </head>
 <body>
@@ -251,7 +275,7 @@
     <span class="dot">›</span>
     <span>🇨🇭 Geneve</span>
     <span class="dot">›</span>
-    <span>🇮🇹 Verona</span>
+    <span>🇮🇹 Bergamo</span>
     <span class="dot">›</span>
     <span>🇦🇹 St. Johann</span>
     <span class="dot">›</span>
@@ -284,6 +308,9 @@
         <div class="day-info">
           <p class="day-title">Afrejse fra Danmark</p>
           <p class="day-desc">Kl. 16–17: Vega afleveres i hundepension (prøver kl. 9–10) · Kørsel mod Sydtyskland / Schweiz</p>
+          <div class="map-link-row">
+            <a class="map-link" href="https://www.google.com/maps/dir/Copenhagen/Freiburg+im+Breisgau,+Germany" target="_blank">🗺 København → Freiburg</a>
+          </div>
         </div>
         <span class="day-badge dk">DK→DE</span>
       </div>
@@ -312,6 +339,10 @@
         <div class="day-info">
           <p class="day-title">Ankomst til Geneve</p>
           <p class="day-desc">Kørsel fra overnatningssted til Geneve</p>
+          <div class="map-link-row">
+            <a class="map-link" href="https://www.google.com/maps/dir/Freiburg+im+Breisgau/Geneva,+Switzerland" target="_blank">🗺 Freiburg → Geneve</a>
+            <a class="map-link" href="https://www.google.com/maps/place/Geneva,+Switzerland" target="_blank">📍 Geneve</a>
+          </div>
         </div>
         <span class="day-badge ch">CH</span>
       </div>
@@ -331,6 +362,9 @@
         <div class="day-info">
           <p class="day-title">Geneve</p>
           <p class="day-desc">Fx CERN</p>
+          <div class="map-link-row">
+            <a class="map-link" href="https://www.google.com/maps/place/CERN" target="_blank">📍 CERN</a>
+          </div>
         </div>
         <span class="day-badge ch">CH</span>
       </div>
@@ -346,6 +380,9 @@
         <div class="day-info">
           <p class="day-title">Geneve</p>
           <p class="day-desc">Fx Røde Kors-museet</p>
+          <div class="map-link-row">
+            <a class="map-link" href="https://www.google.com/maps/place/International+Red+Cross+and+Red+Crescent+Museum,+Geneva" target="_blank">📍 Røde Kors-museet</a>
+          </div>
         </div>
         <span class="day-badge ch">CH</span>
       </div>
@@ -356,7 +393,7 @@
   <div class="section">
     <div class="section-header">
       <div class="section-header-line"></div>
-      <span class="section-label">🇮🇹 Italien · Verona</span>
+      <span class="section-label">🇮🇹 Italien · Bergamo</span>
       <div class="section-header-line"></div>
     </div>
 
@@ -368,14 +405,17 @@
           <span class="mo">jul</span>
         </div>
         <div class="day-info">
-          <p class="day-title">Kørsel til Verona</p>
+          <p class="day-title">Kørsel til Bergamo</p>
           <p class="day-desc">Afgang fra Geneve</p>
+          <div class="map-link-row">
+            <a class="map-link" href="https://www.google.com/maps/dir/Geneva,+Switzerland/Bergamo,+Italy" target="_blank">🗺 Geneve → Bergamo</a>
+          </div>
         </div>
         <span class="day-badge it">IT</span>
       </div>
       <div class="drive-bar">
         <span class="drive-icon">🚗</span>
-        <span>5,5 timers kørsel · Ankomst Verona (4 overnatninger)</span>
+        <span>4,5 timers kørsel · Ankomst Bergamo (4 overnatninger)</span>
       </div>
     </div>
 
@@ -387,8 +427,12 @@
           <span class="mo">jul</span>
         </div>
         <div class="day-info">
-          <p class="day-title">Verona by</p>
-          <p class="day-desc">Fx Arena di Verona, Piazza delle Erbe</p>
+          <p class="day-title">Bergamo by</p>
+          <p class="day-desc">… og afslapning</p>
+          <div class="map-link-row">
+            <a class="map-link" href="https://www.google.com/maps/place/Città+Alta,+Bergamo,+Italy" target="_blank">📍 Città Alta</a>
+            <a class="map-link" href="https://www.google.com/maps/place/Bergamo,+Italy" target="_blank">📍 Bergamo</a>
+          </div>
         </div>
         <span class="day-badge it">IT</span>
       </div>
@@ -402,8 +446,12 @@
           <span class="mo">jul</span>
         </div>
         <div class="day-info">
-          <p class="day-title">Gardasøen</p>
+          <p class="day-title">Comosøen</p>
           <p class="day-desc">Dagstur</p>
+          <div class="map-link-row">
+            <a class="map-link" href="https://www.google.com/maps/dir/Bergamo,+Italy/Como,+Italy" target="_blank">🗺 Bergamo → Como</a>
+            <a class="map-link" href="https://www.google.com/maps/place/Lake+Como,+Italy" target="_blank">📍 Comosøen</a>
+          </div>
         </div>
         <span class="day-badge it">IT</span>
       </div>
@@ -417,8 +465,12 @@
           <span class="mo">jul</span>
         </div>
         <div class="day-info">
-          <p class="day-title">Vicenza eller Mantova</p>
+          <p class="day-title">Milano</p>
           <p class="day-desc">Dagstur</p>
+          <div class="map-link-row">
+            <a class="map-link" href="https://www.google.com/maps/dir/Bergamo,+Italy/Milan,+Italy" target="_blank">🗺 Bergamo → Milano</a>
+            <a class="map-link" href="https://www.google.com/maps/place/Milan,+Italy" target="_blank">📍 Milano</a>
+          </div>
         </div>
         <span class="day-badge it">IT</span>
       </div>
@@ -442,13 +494,16 @@
         </div>
         <div class="day-info">
           <p class="day-title">Kørsel til St. Johann</p>
-          <p class="day-desc">Afgang fra Verona</p>
+          <p class="day-desc">Afgang fra Bergamo</p>
+          <div class="map-link-row">
+            <a class="map-link" href="https://www.google.com/maps/dir/Bergamo,+Italy/St.+Johann+in+Tirol,+Austria" target="_blank">🗺 Bergamo → St. Johann</a>
+          </div>
         </div>
         <span class="day-badge at">AT</span>
       </div>
       <div class="drive-bar">
         <span class="drive-icon">🚗</span>
-        <span>4 timers kørsel · Ankomst St. Johann (3 overnatninger)</span>
+        <span>5 timers kørsel · Ankomst St. Johann (3 overnatninger)</span>
       </div>
     </div>
 
@@ -462,6 +517,9 @@
         <div class="day-info">
           <p class="day-title">St. Johann</p>
           <p class="day-desc">Fx bjergtur i St. Johann og omegn</p>
+          <div class="map-link-row">
+            <a class="map-link" href="https://www.google.com/maps/place/St.+Johann+in+Tirol,+Austria" target="_blank">📍 St. Johann in Tirol</a>
+          </div>
         </div>
         <span class="day-badge at">AT</span>
       </div>
@@ -475,8 +533,12 @@
           <span class="mo">jul</span>
         </div>
         <div class="day-info">
-          <p class="day-title">Dolomitterne eller Grossglockner</p>
+          <p class="day-title">Hohe Tauern / Grossglockner</p>
           <p class="day-desc">Dagstur</p>
+          <div class="map-link-row">
+            <a class="map-link" href="https://www.google.com/maps/place/Grossglockner+High+Alpine+Road,+Austria" target="_blank">📍 Grossglockner-alpevej</a>
+            <a class="map-link" href="https://www.google.com/maps/place/Hohe+Tauern+National+Park,+Austria" target="_blank">📍 Hohe Tauern</a>
+          </div>
         </div>
         <span class="day-badge at">AT</span>
       </div>
@@ -501,6 +563,9 @@
         <div class="day-info">
           <p class="day-title">Afgang fra St. Johann</p>
           <p class="day-desc">Lang hjemkørsel mod Danmark</p>
+          <div class="map-link-row">
+            <a class="map-link" href="https://www.google.com/maps/dir/St.+Johann+in+Tirol,+Austria/Copenhagen,+Denmark" target="_blank">🗺 St. Johann → København</a>
+          </div>
         </div>
         <span class="day-badge dk">AT→DK</span>
       </div>
