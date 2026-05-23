@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sommerferie 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #FAF7F2;
+    --paper: #F3EFE7;
+    --ink: #1C1915;
+    --ink-mid: #4A463F;
+    --ink-light: #9A9187;
+    --ch-bg: #E8F0F7; --ch-fg: #1A4A72;
+    --it-bg: #F7EDE8; --it-fg: #7A2E14;
+    --at-bg: #EAF2EA; --at-fg: #1D5C1D;
+    --dk-bg: #F5EDE8; --dk-fg: #8B3A1A;
+    --border: rgba(28,25,21,0.12);
+    --radius: 12px;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    padding: 0;
+    height: auto;
+  }
+
+  .hero {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 3rem 1.5rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,0.02) 40px,
+      rgba(255,255,255,0.02) 41px
+    );
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(250,247,242,0.45);
+    margin-bottom: 0.75rem;
+    position: relative;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.2rem, 9vw, 3rem);
+    line-height: 1.1;
+    font-style: italic;
+    position: relative;
+  }
+
+  .hero-route {
+    margin-top: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 13px;
+    color: rgba(250,247,242,0.55);
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .hero-route span { white-space: nowrap; }
+  .hero-route .dot { opacity: 0.3; }
+
+  .content { max-width: 480px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+
+  .special-note {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 13.5px;
+    color: var(--ink-mid);
+  }
+
+  .special-note .note-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .section { margin-bottom: 0.25rem; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem 0.25rem 0.6rem;
+  }
+
+  .section-header-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .section-label {
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    white-space: nowrap;
+  }
+
+  .day-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.15s;
+  }
+
+  .day-card:active { box-shadow: 0 2px 12px rgba(28,25,21,0.08); }
+
+  .day-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0.85rem 1rem;
+  }
+
+  .day-date {
+    text-align: center;
+    min-width: 44px;
+    margin-right: 0.85rem;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+
+  .day-date .wd {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    display: block;
+  }
+
+  .day-date .d {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.75rem;
+    line-height: 1;
+    color: var(--ink);
+    display: block;
+    margin: 1px 0;
+  }
+
+  .day-date .mo {
+    font-size: 10px;
+    color: var(--ink-light);
+    text-transform: lowercase;
+    display: block;
+    letter-spacing: 0.03em;
+  }
+
+  .day-info { flex: 1; min-width: 0; }
+
+  .day-title {
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .day-desc {
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 1.55;
+  }
+
+  .day-badge {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 500;
+    padding: 3px 9px;
+    border-radius: 20px;
+    margin-left: 8px;
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: 1px;
+  }
+
+  .ch { background: var(--ch-bg); color: var(--ch-fg); }
+  .it { background: var(--it-bg); color: var(--it-fg); }
+  .at { background: var(--at-bg); color: var(--at-fg); }
+  .dk { background: var(--dk-bg); color: var(--dk-fg); }
+
+  .drive-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.45rem 1rem 0.45rem 1rem;
+    border-top: 1px solid var(--border);
+    background: var(--cream);
+    font-size: 12px;
+    color: var(--ink-light);
+  }
+
+  .drive-icon { font-size: 14px; flex-shrink: 0; }
+
+  footer {
+    text-align: center;
+    padding: 2rem 1rem 3rem;
+    font-size: 12px;
+    color: var(--ink-light);
+    border-top: 1px solid var(--border);
+    margin-top: 1rem;
+  }
+
+  footer .paw { font-size: 18px; display: block; margin-bottom: 6px; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <p class="hero-eyebrow">Familie · 2026</p>
+  <h1>Sommerferie</h1>
+  <div class="hero-route">
+    <span>19. juli</span>
+    <span class="dot">—</span>
+    <span>🇩🇰 Danmark</span>
+    <span class="dot">›</span>
+    <span>🇨🇭 Geneve</span>
+    <span class="dot">›</span>
+    <span>🇮🇹 Verona</span>
+    <span class="dot">›</span>
+    <span>🇦🇹 St. Johann</span>
+    <span class="dot">›</span>
+    <span>🇩🇰 Hjem</span>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="special-note">
+    <span class="note-icon">⛺</span>
+    <span><strong>Fre 17/7</strong> — Frederik hjem fra FDF Landslejr</span>
+  </div>
+
+  <!-- AFREJSE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-header-line"></div>
+      <span class="section-label">Afrejse</span>
+      <div class="section-header-line"></div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-body">
+        <div class="day-date">
+          <span class="wd">søn</span>
+          <span class="d">19</span>
+          <span class="mo">jul</span>
+        </div>
+        <div class="day-info">
+          <p class="day-title">Afrejse fra Danmark</p>
+          <p class="day-desc">Kl. 16–17: Vega afleveres i hundepension (prøver kl. 9–10) · Kørsel mod Sydtyskland / Schweiz</p>
+        </div>
+        <span class="day-badge dk">DK→DE</span>
+      </div>
+      <div class="drive-bar">
+        <span class="drive-icon">🚗</span>
+        <span>Ca. 10,5 timers kørsel · Overnatning Freiburg / Basel</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCHWEIZ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-header-line"></div>
+      <span class="section-label">🇨🇭 Schweiz · Geneve</span>
+      <div class="section-header-line"></div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-body">
+        <div class="day-date">
+          <span class="wd">man</span>
+          <span class="d">20</span>
+          <span class="mo">jul</span>
+        </div>
+        <div class="day-info">
+          <p class="day-title">Ankomst til Geneve</p>
+          <p class="day-desc">Kørsel fra overnatningssted til Geneve</p>
+        </div>
+        <span class="day-badge ch">CH</span>
+      </div>
+      <div class="drive-bar">
+        <span class="drive-icon">🚗</span>
+        <span>3,5 timers kørsel · 3 overnatninger</span>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-body">
+        <div class="day-date">
+          <span class="wd">tirs</span>
+          <span class="d">21</span>
+          <span class="mo">jul</span>
+        </div>
+        <div class="day-info">
+          <p class="day-title">Geneve</p>
+          <p class="day-desc">Fx CERN</p>
+        </div>
+        <span class="day-badge ch">CH</span>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-body">
+        <div class="day-date">
+          <span class="wd">ons</span>
+          <span class="d">22</span>
+          <span class="mo">jul</span>
+        </div>
+        <div class="day-info">
+          <p class="day-title">Geneve</p>
+          <p class="day-desc">Fx Røde Kors-museet</p>
+        </div>
+        <span class="day-badge ch">CH</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ITALIEN -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-header-line"></div>
+      <span class="section-label">🇮🇹 Italien · Verona</span>
+      <div class="section-header-line"></div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-body">
+        <div class="day-date">
+          <span class="wd">tors</span>
+          <span class="d">23</span>
+          <span class="mo">jul</span>
+        </div>
+        <div class="day-info">
+          <p class="day-title">Kørsel til Verona</p>
+          <p class="day-desc">Afgang fra Geneve</p>
+        </div>
+        <span class="day-badge it">IT</span>
+      </div>
+      <div class="drive-bar">
+        <span class="drive-icon">🚗</span>
+        <span>5,5 timers kørsel · Ankomst Verona (4 overnatninger)</span>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-body">
+        <div class="day-date">
+          <span class="wd">fre</span>
+          <span class="d">24</span>
+          <span class="mo">jul</span>
+        </div>
+        <div class="day-info">
+          <p class="day-title">Verona by</p>
+          <p class="day-desc">Fx Arena di Verona, Piazza delle Erbe</p>
+        </div>
+        <span class="day-badge it">IT</span>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-body">
+        <div class="day-date">
+          <span class="wd">lør</span>
+          <span class="d">25</span>
+          <span class="mo">jul</span>
+        </div>
+        <div class="day-info">
+          <p class="day-title">Gardasøen</p>
+          <p class="day-desc">Dagstur</p>
+        </div>
+        <span class="day-badge it">IT</span>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-body">
+        <div class="day-date">
+          <span class="wd">søn</span>
+          <span class="d">26</span>
+          <span class="mo">jul</span>
+        </div>
+        <div class="day-info">
+          <p class="day-title">Vicenza eller Mantova</p>
+          <p class="day-desc">Dagstur</p>
+        </div>
+        <span class="day-badge it">IT</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ØSTRIG -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-header-line"></div>
+      <span class="section-label">🇦🇹 Østrig · St. Johann</span>
+      <div class="section-header-line"></div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-body">
+        <div class="day-date">
+          <span class="wd">man</span>
+          <span class="d">27</span>
+          <span class="mo">jul</span>
+        </div>
+        <div class="day-info">
+          <p class="day-title">Kørsel til St. Johann</p>
+          <p class="day-desc">Afgang fra Verona</p>
+        </div>
+        <span class="day-badge at">AT</span>
+      </div>
+      <div class="drive-bar">
+        <span class="drive-icon">🚗</span>
+        <span>4 timers kørsel · Ankomst St. Johann (3 overnatninger)</span>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-body">
+        <div class="day-date">
+          <span class="wd">tirs</span>
+          <span class="d">28</span>
+          <span class="mo">jul</span>
+        </div>
+        <div class="day-info">
+          <p class="day-title">St. Johann</p>
+          <p class="day-desc">Fx bjergtur i St. Johann og omegn</p>
+        </div>
+        <span class="day-badge at">AT</span>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-body">
+        <div class="day-date">
+          <span class="wd">ons</span>
+          <span class="d">29</span>
+          <span class="mo">jul</span>
+        </div>
+        <div class="day-info">
+          <p class="day-title">Dolomitterne eller Grossglockner</p>
+          <p class="day-desc">Dagstur</p>
+        </div>
+        <span class="day-badge at">AT</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HJEMTUR -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-header-line"></div>
+      <span class="section-label">Hjemtur</span>
+      <div class="section-header-line"></div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-body">
+        <div class="day-date">
+          <span class="wd">tors</span>
+          <span class="d">30</span>
+          <span class="mo">jul</span>
+        </div>
+        <div class="day-info">
+          <p class="day-title">Afgang fra St. Johann</p>
+          <p class="day-desc">Lang hjemkørsel mod Danmark</p>
+        </div>
+        <span class="day-badge dk">AT→DK</span>
+      </div>
+      <div class="drive-bar">
+        <span class="drive-icon">🚗</span>
+        <span>Ca. 12,5 timers kørsel</span>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-body">
+        <div class="day-date">
+          <span class="wd">fre</span>
+          <span class="d">31</span>
+          <span class="mo">jul</span>
+        </div>
+        <div class="day-info">
+          <p class="day-title">Hjemkomst 🏠</p>
+          <p class="day-desc">Nat / formiddag: ankomst · Kl. 16–17: Vega hentes i hundepension</p>
+        </div>
+        <span class="day-badge dk">DK</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span class="paw">🐾</span>
+  Vega venter — god sommer!
+</footer>
+
+
+<script>
+  function reportHeight() {
+    var h = document.documentElement.scrollHeight;
+    window.parent.postMessage({ type: 'resize', height: h }, '*');
+  }
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(reportHeight);
+  }
+  setTimeout(reportHeight, 500);
+  setTimeout(reportHeight, 1500);
+</script>
+</body>
+</html>
