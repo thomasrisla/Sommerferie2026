@@ -261,6 +261,47 @@
     border-bottom: 1px dashed var(--border);
   }
   .drive-link:hover { color: var(--ink-mid); }
+
+  details { margin-top: 8px; }
+  details summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: var(--ink-light);
+    cursor: pointer;
+    list-style: none;
+    padding: 3px 0;
+    user-select: none;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::before {
+    content: '▶';
+    font-size: 8px;
+    transition: transform 0.2s;
+    display: inline-block;
+  }
+  details[open] summary::before { transform: rotate(90deg); }
+  details summary:hover { color: var(--ink-mid); }
+  .ta-links {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 8px;
+    padding: 8px 10px;
+    background: var(--paper);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  .ta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    color: #00AA6C;
+    text-decoration: none;
+  }
+  .ta-link:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -365,6 +406,13 @@
           <div class="map-link-row">
             <a class="map-link" href="https://www.google.com/maps/place/CERN" target="_blank">📍 CERN</a>
           </div>
+          <details>
+            <summary>Tripadvisor-links</summary>
+            <div class="ta-links">
+              <a class="ta-link" href="https://www.tripadvisor.com/Attraction_Review-g1974645-d242814-Reviews-CERN_Science_Gateway-Meyrin_Geneva_Canton_of_Geneva.html" target="_blank">🟢 CERN Science Gateway</a>
+              <a class="ta-link" href="https://www.tripadvisor.com/Attractions-g188057-Activities-Geneva.html" target="_blank">🟢 Seværdigheder i Geneve</a>
+            </div>
+          </details>
         </div>
         <span class="day-badge ch">CH</span>
       </div>
@@ -383,6 +431,13 @@
           <div class="map-link-row">
             <a class="map-link" href="https://www.google.com/maps/place/International+Red+Cross+and+Red+Crescent+Museum,+Geneva" target="_blank">📍 Røde Kors-museet</a>
           </div>
+          <details>
+            <summary>Tripadvisor-links</summary>
+            <div class="ta-links">
+              <a class="ta-link" href="https://www.tripadvisor.com/Attraction_Review-g188057-d242816-Reviews-International_Red_Cross_and_Red_Crescent_Museum-Geneva.html" target="_blank">🟢 Røde Kors-museet</a>
+              <a class="ta-link" href="https://www.tripadvisor.com/Attractions-g188057-Activities-Geneva.html" target="_blank">🟢 Seværdigheder i Geneve</a>
+            </div>
+          </details>
         </div>
         <span class="day-badge ch">CH</span>
       </div>
@@ -433,6 +488,14 @@
             <a class="map-link" href="https://www.google.com/maps/place/Città+Alta,+Bergamo,+Italy" target="_blank">📍 Città Alta</a>
             <a class="map-link" href="https://www.google.com/maps/place/Bergamo,+Italy" target="_blank">📍 Bergamo</a>
           </div>
+          <details>
+            <summary>Tripadvisor-links</summary>
+            <div class="ta-links">
+              <a class="ta-link" href="https://www.tripadvisor.com/Attraction_Review-g187830-d547487-Reviews-La_Citta_Alta-Bergamo_Province_of_Bergamo_Lombardy.html" target="_blank">🟢 La Città Alta</a>
+              <a class="ta-link" href="https://www.tripadvisor.com/Attraction_Review-g187830-d2364827-Reviews-Piazza_Vecchia-Bergamo_Province_of_Bergamo_Lombardy.html" target="_blank">🟢 Piazza Vecchia</a>
+              <a class="ta-link" href="https://www.tripadvisor.com/Attractions-g187830-Activities-Bergamo_Province_of_Bergamo_Lombardy.html" target="_blank">🟢 Alle seværdigheder i Bergamo</a>
+            </div>
+          </details>
         </div>
         <span class="day-badge it">IT</span>
       </div>
@@ -452,6 +515,14 @@
             <a class="map-link" href="https://www.google.com/maps/dir/Bergamo,+Italy/Como,+Italy" target="_blank">🗺 Bergamo → Como</a>
             <a class="map-link" href="https://www.google.com/maps/place/Lake+Como,+Italy" target="_blank">📍 Comosøen</a>
           </div>
+          <details>
+            <summary>Tripadvisor-links</summary>
+            <div class="ta-links">
+              <a class="ta-link" href="https://www.tripadvisor.com/Attraction_Review-g187835-d12276890-Reviews-Lake_Como-Como_Lake_Como_Lombardy.html" target="_blank">🟢 Lago di Como</a>
+              <a class="ta-link" href="https://www.tripadvisor.com/Attraction_Review-g187836-d195784-Reviews-Bellagio-Bellagio_Lake_Como_Lombardy.html" target="_blank">🟢 Bellagio</a>
+              <a class="ta-link" href="https://www.tripadvisor.com/Attractions-g187833-Activities-Lake_Como_Lombardy.html" target="_blank">🟢 Seværdigheder ved Comosøen</a>
+            </div>
+          </details>
         </div>
         <span class="day-badge it">IT</span>
       </div>
@@ -471,6 +542,15 @@
             <a class="map-link" href="https://www.google.com/maps/dir/Bergamo,+Italy/Milan,+Italy" target="_blank">🗺 Bergamo → Milano</a>
             <a class="map-link" href="https://www.google.com/maps/place/Milan,+Italy" target="_blank">📍 Milano</a>
           </div>
+          <details>
+            <summary>Tripadvisor-links</summary>
+            <div class="ta-links">
+              <a class="ta-link" href="https://www.tripadvisor.com/Attraction_Review-g187849-d2356671-Reviews-Duomo_di_Milano-Milan_Lombardy.html" target="_blank">🟢 Duomo di Milano</a>
+              <a class="ta-link" href="https://www.tripadvisor.com/Attraction_Review-g187849-d195771-Reviews-Galleria_Vittorio_Emanuele_II-Milan_Lombardy.html" target="_blank">🟢 Galleria Vittorio Emanuele II</a>
+              <a class="ta-link" href="https://www.tripadvisor.com/Attraction_Review-g187849-d195777-Reviews-Il_Cenacolo-Milan_Lombardy.html" target="_blank">🟢 Il Cenacolo (Nadveren)</a>
+              <a class="ta-link" href="https://www.tripadvisor.com/Attractions-g187849-Activities-Milan_Lombardy.html" target="_blank">🟢 Alle seværdigheder i Milano</a>
+            </div>
+          </details>
         </div>
         <span class="day-badge it">IT</span>
       </div>
@@ -520,6 +600,13 @@
           <div class="map-link-row">
             <a class="map-link" href="https://www.google.com/maps/place/St.+Johann+in+Tirol,+Austria" target="_blank">📍 St. Johann in Tirol</a>
           </div>
+          <details>
+            <summary>Tripadvisor-links</summary>
+            <div class="ta-links">
+              <a class="ta-link" href="https://www.tripadvisor.com/Attractions-g608677-Activities-St_Johann_in_Tirol_Tirol_Austrian_Alps.html" target="_blank">🟢 Seværdigheder i St. Johann</a>
+              <a class="ta-link" href="https://www.tripadvisor.com/Attractions-g608677-Activities-c61-t87-St_Johann_in_Tirol_Tirol_Austrian_Alps.html" target="_blank">🟢 Vandreture i St. Johann</a>
+            </div>
+          </details>
         </div>
         <span class="day-badge at">AT</span>
       </div>
@@ -539,6 +626,13 @@
             <a class="map-link" href="https://www.google.com/maps/place/Grossglockner+High+Alpine+Road,+Austria" target="_blank">📍 Grossglockner-alpevej</a>
             <a class="map-link" href="https://www.google.com/maps/place/Hohe+Tauern+National+Park,+Austria" target="_blank">📍 Hohe Tauern</a>
           </div>
+          <details>
+            <summary>Tripadvisor-links</summary>
+            <div class="ta-links">
+              <a class="ta-link" href="https://www.tripadvisor.com/Attraction_Review-g190426-d2385017-Reviews-Grossglockner_High_Alpine_Road-Heiligenblut_am_Grossglockner_Carinthia.html" target="_blank">🟢 Grossglockner Hochalpenstrasse</a>
+              <a class="ta-link" href="https://www.tripadvisor.com/Attraction_Review-g198553-d2354530-Reviews-Hohe_Tauern_National_Park-Zell_am_See_Salzburg_Austrian_Alps.html" target="_blank">🟢 Hohe Tauern Nationalpark</a>
+            </div>
+          </details>
         </div>
         <span class="day-badge at">AT</span>
       </div>
